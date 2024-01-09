@@ -20,7 +20,7 @@ from .views import suppress_site,change_site,add_site,list_sites
 
 urlpatterns = [
     path('', list_sites, name='list_sites'),  # URL racine de l'application
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('suppress/<int:site_id>', suppress_site, name='suppress_site'),
     path('change/<int:site_id>', change_site, name='change_site'),
     path('add/<int:site_id>', add_site, name='add_site'),
