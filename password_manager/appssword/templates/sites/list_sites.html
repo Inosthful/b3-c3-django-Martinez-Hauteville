@@ -1,16 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="flex items-center justify-center flex-col">
-  <h2 class="pb-4 pt-4 ">Liste des sites</h2>
+<div class="flex items-center justify-center flex-col bg-white ">
+  <h2 class="pb-4 pt-4 text-2xl font-semibold ">Liste des sites</h2>
   <div class="flex justify-center items-center pt-3">
-    <ul>
-      {% for site in sites %}
-        <li>{{site.id}} {{ site.nom }} - {{ site.url }} - {{ site.identifiant }} - {{ site.mot_de_passe }}</li>
-      {% endfor %}
-    </ul>
-  </div>
-  <a href="{% url 'export_csv' %}">Exporter CSV</a></li>
+  <ul>
+    {% for site in sites %}
+      <li class="bg-gray-200 test-dark py-1 my-2 p-5 rounded-lg flex flex-col"><div>  <span class="underline">id : </span> <span class="font-semibold">{{site.id}} </span> </div>
+           <div> <span class="underline">nom : </span> <span class="font-semibold">{{ site.nom }} </span> </div>
+         <div> <span class="underline">url : </span> <span class="font-semibold">{{ site.url }} </span> </div>
+         <div> <span class="underline">identifiant : </span> <span class="font-semibold">{{ site.identifiant }} </span></div>
+        
+        <div> <span class="underline">mdp : </span> <span class="font-semibold">{{ site.mot_de_passe }} </span> </div>
+        <div> <a href="{% url 'change_site' site.id %}" class="flex justify-end items-end">
+        <button class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-700">Modifier</button>
+    </a></div>
+    <div>
+    <a href="{% url 'suppress_site' site.id %}" class="flex justify-end items-end my-1">
+        <button class="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600">Supprimer</button>
+    </a></div></li>
+
+    {% endfor %}
+  </ul>
+</div>
 </div>
 
 {% endblock %}
