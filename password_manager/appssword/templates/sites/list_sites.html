@@ -4,11 +4,13 @@
 <div class="flex items-center justify-center flex-col">
   <h2 class="pb-4 pt-4 ">Liste des sites</h2>
   <div class="flex justify-center items-center pt-3">
-  <ul>
-    {% for site in sites %}
-      <li>{{site.id}} {{ site.nom }} - {{ site.url }} - {{ site.identifiant }} - {{ site.mot_de_passe }}</li>
-    {% endfor %}
-  </ul>
+    <ul>
+      {% for site in sites %}
+        <li>{{site.id}} {{ site.nom }} - {{ site.url }} - {{ site.identifiant }} - {{ site.mot_de_passe }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  <a href="{% url 'export_csv' %}">Exporter CSV</a></li>
 </div>
-</div>
+
 {% endblock %}

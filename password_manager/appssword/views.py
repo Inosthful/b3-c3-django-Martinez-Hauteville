@@ -67,8 +67,8 @@ def import_csv(request):
                 )
                 site.save()
 
-            return redirect('liste_sites')
+            return redirect('list_sites')
     else:
         form = CSVUploadForm()
 
-    return render(request, 'import_csv.html', {'form': form})
+    return render(request, 'sites/import_csv.html', {'form': form})

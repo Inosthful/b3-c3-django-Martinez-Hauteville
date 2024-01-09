@@ -27,5 +27,4 @@ urlpatterns = [
     path('import-csv/', import_csv, name='import_csv'),
     path('export-csv/', export_csv, name='export_csv'),
 
-
 ]
