@@ -1,9 +1,29 @@
 <html lang="en">
+    {% load static %}
 <head>
-    {% block content %}{% endblock %}
+
+    
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/styles.css' %}"> {% endcomment %}
+
 </head>
-<body>
+<body class="">
+ 
+    <nav>
+        <ul>
+            <li><a href="{% url 'list_sites' %}">Liste des Sites</a></li>
+            <li><a href="{% url '/add' %}">Ajouter un Site</a></li>
+            <li><a href="{% url '/suppress' %}">Ajouter un Site</a></li>
+            <li><a href="{% url 'export_csv' %}">Exporter CSV</a></li>
+            <li><a href="{% url 'import_csv' %}">Importer CSV</a></li>
+        </ul>
+    </nav>
+    {% comment %} <button id="toggleDarkMode">Toggle Dark Mode</button> {% endcomment %}
+
+    {% block content %}{% endblock %}
     {% block content2 %}{% endblock %}
+
+    {% comment %} <script src="{% static 'js/darkmode.js' %}"></script> {% endcomment %}
+
 </body>
 </html>

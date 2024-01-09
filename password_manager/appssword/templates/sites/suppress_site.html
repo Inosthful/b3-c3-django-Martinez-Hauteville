@@ -9,12 +9,15 @@
     {% block content2 %}
     <div class="flex flex-col text-center p-3 bg white ">
         <h1 class="p-1">Supprimer le site</h1>
-        <p class="p-1">Êtes-vous sûr de vouloir supprimer le site "{{ site.id}}" ?</p>
-        <form method="post" action="{% url 'suppress_site' site.id %}">
+        <p class="p-1">Êtes-vous sûr de vouloir supprimer le site "{{ site.nom}}" ?</p>
+        <form method="post" action="{% url 'suppress_site' site.id %}" class="">
             {% csrf_token %}
-            <button type="submit">Confirmer la suppression</button>
+            <button type="submit" class="bg-red-500 hover:bg-red-600
+            px-3 py-1 rounded-lg text-white my-2">Confirmer la suppression</button>
+            <a href="{% url 'list_sites' %}" class="bg-blue-500 hover:bg-blue-700
+            px-3 py-1 rounded-lg text-white my-2">Annuler</a>
         </form>
-        <a href="{% url 'list_sites' %}">Annuler</a>
+    
     </div>
     {% endblock %}
 </body>
