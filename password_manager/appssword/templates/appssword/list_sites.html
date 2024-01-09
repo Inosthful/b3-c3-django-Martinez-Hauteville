@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Liste des sites</h2>
+  <ul>
+    {% for site in sites %}
+      <li>{{ site.nom }} - {{ site.url }} - {{ site.identifiant }} - {{ site.mot_de_passe }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
