@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import suppress_site,change_site,add_site,list_sites
+from .views import export_csv, import_csv, suppress_site,change_site,add_site,list_sites
 
 urlpatterns = [
     path('', list_sites, name='list_sites'),  # URL racine de l'application
@@ -24,4 +24,7 @@ urlpatterns = [
     path('suppress/<int:site_id>', suppress_site, name='suppress_site'),
     path('change/<int:site_id>', change_site, name='change_site'),
     path('add/', add_site, name='add_site'),
+    path('import-csv/', import_csv, name='import_csv'),
+    path('export-csv/', export_csv, name='export_csv'),
+
 ]

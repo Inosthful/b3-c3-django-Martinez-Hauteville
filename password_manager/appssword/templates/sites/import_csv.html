@@ -1,0 +1,16 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Importer des mots de passe depuis un fichier CSV</title>
+</head>
+<body>
+    <h1>Importer des mots de passe depuis un fichier CSV</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Importer</button>
+    </form>
+
+    <a href="{% url 'list_sites' %}">Retour à la liste des sites</a>
+</body>
