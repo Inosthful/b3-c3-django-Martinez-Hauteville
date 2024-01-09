@@ -10,12 +10,18 @@
 <body class="">
  
     <nav>
-        <ul>
-            <li><a href="{% url 'list_sites' %}">Liste des Sites</a></li>
-            <li><a href="{% url '/add' %}">Ajouter un Site</a></li>
-            <li><a href="{% url '/suppress' %}">Ajouter un Site</a></li>
-            <li><a href="{% url 'export_csv' %}">Exporter CSV</a></li>
-            <li><a href="{% url 'import_csv' %}">Importer CSV</a></li>
+        <ul class="flex flex-row justify-between pt-3">
+            <div class="">
+           <div class="flex flex-row gap-4">
+            <li><a href="{% url 'list_sites' %}" class="border border-gray-700 p-1 rounded-lg bg-gray-200 hover:bg-gray-400 ">Liste des Sites</a></li>
+            <li><a href="{% url 'add_site' %}" class="border border-gray-700 p-1 rounded-lg bg-gray-200 hover:bg-gray-400">Ajouter un Site</a></li>
+            </div>
+        </div>
+        <div class="flex flex-row gap-4">
+            <li><a href="{% url 'export_csv' %}" class="border border-gray-700 p-1 rounded-lg bg-gray-200 hover:bg-gray-400">Exporter CSV</a></li>
+            <li><a href="{% url 'import_csv' %}" class="border border-gray-700 p-1 rounded-lg bg-gray-200 hover:bg-gray-400">Importer CSV</a></li>
+        </div>
+        </div>
         </ul>
     </nav>
     {% comment %} <button id="toggleDarkMode">Toggle Dark Mode</button> {% endcomment %}
