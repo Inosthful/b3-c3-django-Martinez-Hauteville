@@ -23,5 +23,5 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path('suppress/<int:site_id>', suppress_site, name='suppress_site'),
     path('change/<int:site_id>', change_site, name='change_site'),
-    path('add/<int:site_id>', add_site, name='add_site'),
+    path('add/', add_site, name='add_site'),
 ]
