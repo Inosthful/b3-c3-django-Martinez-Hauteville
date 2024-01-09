@@ -1,10 +1,21 @@
-{% extends 'base.html' %}
-
-{% block content %}
-  <h2>Liste des sites</h2>
-  <ul>
-    {% for site in sites %}
-      <li>{{ site.nom }} - {{ site.url }} - {{ site.identifiant }} - {{ site.mot_de_passe }}</li>
-    {% endfor %}
-  </ul>
-{% endblock %}
+{% extends "base.html" %}
+<html>
+<head>
+    {% block content %}
+    <title>Supprimer un site</title>
+    {% endblock %}
+</head>
+<body>
+    {% block content2 %}
+    <div class="flex flex-col text-center p-3 bg white ">
+        <h1 class="p-1">Supprimer le site</h1>
+        <p class="p-1">Êtes-vous sûr de vouloir supprimer le site "{{ site.id}}" ?</p>
+        <form method="post" action="{% url 'suppress_site' site.id %}">
+            {% csrf_token %}
+            <button type="submit">Confirmer la suppression</button>
+        </form>
+        <a href="{% url 'list_sites' %}">Annuler</a>
+    </div>
+    {% endblock %}
+</body>
+</html>
