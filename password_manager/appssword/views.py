@@ -1,8 +1,9 @@
 import csv
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Site
 from .forms import SiteForm, CSVUploadForm
+from django.views.decorators.csrf import csrf_exempt
 
 def list_sites(request):
     sites = Site.objects.all()
@@ -72,3 +73,16 @@ def import_csv(request):
         form = CSVUploadForm()
 
     return render(request, 'sites/import_csv.html', {'form': form})
+
+@csrf_exempt
+def toggle_dark_mode(request):
+    if request.method == 'POST':
+        # Basculement du mode sombre
+        request.session['DARK_MODE'] = not request.session.get('DARK_MODE', False)
+        request.session.save()
+        return JsonResponse({'status': 'success'})
+    elif request.method == 'GET':
+        # Pour récupérer l'état actuel du mode (clair ou sombre)
+        dark_mode = request.session.get('DARK_MODE', False)
+        return JsonResponse({'dark_mode': dark_mode})
+    return JsonResponse({'status': 'error'})

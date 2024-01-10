@@ -28,3 +28,27 @@
 //         }
 //     });
 // });
+$(document).ready(function() {
+    // Fonction pour obtenir l'état actuel du mode
+    function getDarkMode() {
+        $.get('/dark-mode/', function(data) {
+            if (data.dark_mode) {
+                console.log("mode sombre")
+            } else {
+                console.log("mode clair")
+            }
+        });
+    }
+
+    // Appeler la fonction pour activer le mode lors du chargement de la page
+       getDarkMode();
+
+    $('#toggleDarkMode').click(function() {
+        $.post('/dark-mode/', function(data) {
+            if (data.status === 'success') {
+                // Appeler à nouveau la fonction pour basculer entre les modes
+                getDarkMode();
+            }
+        });
+    });
+});

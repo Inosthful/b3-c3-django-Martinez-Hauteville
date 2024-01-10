@@ -15,3 +15,7 @@ body.dark-mode {
     background-color:#8c12f7 !important;
 }
      */
+     #navbar{
+        background-color: darkblue;
+        height: 5%;
+    }

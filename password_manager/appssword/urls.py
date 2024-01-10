@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import export_csv, import_csv, suppress_site,change_site,add_site,list_sites
+from .views import export_csv, import_csv, suppress_site,change_site,add_site,list_sites, toggle_dark_mode
 
 urlpatterns = [
     path('', list_sites, name='list_sites'),  # URL racine de l'application
@@ -26,5 +26,6 @@ urlpatterns = [
     path('add/', add_site, name='add_site'),
     path('import-csv/', import_csv, name='import_csv'),
     path('export-csv/', export_csv, name='export_csv'),
+    path('dark-mode/', toggle_dark_mode, name='toggle_dark_mode'),
 
 ]

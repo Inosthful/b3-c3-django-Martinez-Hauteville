@@ -4,12 +4,15 @@
 
     
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    {% comment %} <link rel="stylesheet" href="{% static 'css/styles.css' %}"> {% endcomment %}
-
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/styles_light.css' %}"> 
+    {%if DARK_MODE%}
+    <link rel="stylesheet" href="{% static 'css/styles_dark.css' %}"> 
+    {%endif%}
 </head>
 <body class="">
  
-    <nav>
+    <nav id="navbar">
         <ul class="flex flex-row justify-between pt-3">
             <div class="">
            <div class="flex flex-row gap-4">
@@ -24,12 +27,12 @@
         </div>
         </ul>
     </nav>
-    {% comment %} <button id="toggleDarkMode">Toggle Dark Mode</button> {% endcomment %}
+    <button id="toggleDarkMode">Toggle Dark Mode</button> 
 
     {% block content %}{% endblock %}
     {% block content2 %}{% endblock %}
-
-    {% comment %} <script src="{% static 'js/darkmode.js' %}"></script> {% endcomment %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/darkmode.js' %}"></script>
 
 </body>
 </html>
