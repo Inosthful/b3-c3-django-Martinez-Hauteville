@@ -7,9 +7,9 @@
 </head>
 <body>
     {% block content2 %}
-    <div class="flex flex-col text-center p-3">
-        <h1 class="p-1">Ajouter un site</h1>
-        <form method="post" action="{% url 'add_site' %}">
+    <div class=" maincontent flex flex-col text-center p-3 ">
+        <h1 class="pb-4 pt-4 text-2xl font-semibold ">Ajouter un site</h1>
+        <form  method="post" action="{% url 'add_site' %}" class=" form-site bg-gray-200 test-dark py-1 my-2 p-5 rounded-lg flex flex-col">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit" class="bg-blue-500

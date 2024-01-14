@@ -1,16 +1,14 @@
-<head>
-    <meta charset="UTF-8">
-    <title>Importer des mots de passe depuis un fichier CSV</title>
-</head>
-<body>
-    <h1>Importer des mots de passe depuis un fichier CSV</h1>
+{% extends 'base.html' %}
 
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
+{%block content%}
+    <div class="maincontent flex items-center justify-center flex-col bg-white ">
+        <h1 class="flex justify-center text-3xl" >Importer des mots de passe depuis un fichier CSV</h1>
 
-        <button type="submit">Importer</button>
-    </form>
+        <form class="flex justify-center " method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
 
-    <a href="{% url 'list_sites' %}">Retour à la liste des sites</a>
-</body>
+            <button  class="flex justify-center  bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-700" type="submit">Importer</button>
+        </form>
+    </div>
+{% endblock %}

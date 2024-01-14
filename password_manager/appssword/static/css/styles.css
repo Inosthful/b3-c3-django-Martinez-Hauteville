@@ -1,21 +1,43 @@
-/* 
-body {
-    transition: background-color 0.5s ease;
+#navbar{
+    height: 5%;
 }
-
-body.dark-mode {
-    background-color: #121212; 
-} */
-
- 
-/* .test{
-    background-color: aliceblue;
-} 
-.test-dark{
-    background-color:#8c12f7 !important;
-}
-     */
-     #navbar{
-        background-color: darkblue;
-        height: 5%;
+.maincontent{
+    min-height: 95%;
+    .form-site{
+        p{
+            margin-bottom: 2em;
+        }
     }
+}
+    [data-theme="light"] {
+        #navbar{
+            background-color: blue;
+        }
+    }
+    
+    [data-theme="dark"] {
+        input{
+            background-color: rgb(4, 4, 80);
+        }
+        .form-site{
+            background-color: darkblue
+        }
+        .maincontent{
+            background-color: black;
+            li{
+                background-color: darkblue;
+            }
+        }
+        div{
+            color: white;
+        }
+        #navbar{
+            background-color: darkblue;
+            color:black ;
+            a{
+                background-color: black;
+            }
+        }
+    }
+    
+
