@@ -11,24 +11,26 @@
  
     <nav id="navbar">
         <ul class="flex flex-row justify-between pt-3">
-                <div class="flex flex-row gap-4">
+                <div class="flex flex-row gap-4 justify-center items-center">
                     <li>
                         <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                           
                             {% csrf_token %}
-                            <button type="submit" class="border border-gray-700 p-1 rounded-lg bg-gray-200 hover:bg-gray-400">
+                            
+                            <button  class="border border-gray-700 m-0 p-1 rounded-lg bg-gray-200 hover:bg-gray-400">
                                 Déconnexion
-                            </button>
                         </form>
+                    </a>
                     </li>
                     <li><a href="{% url 'list_sites' %}" class="border border-gray-700 p-1 rounded-lg bg-gray-200 hover:bg-gray-400 ">Liste des Sites</a></li>
                     <li><a href="{% url 'add_site' %}" class="border border-gray-700 p-1 rounded-lg bg-gray-200 hover:bg-gray-400">Ajouter un Site</a></li>
                 </div>
             
-                <div class="flex flex-row gap-4">
+                <div class="flex flex-row gap-4 justify-center items-center">
                     <li><a href="{% url 'export_csv' %}" class="border border-gray-700 p-1 rounded-lg bg-gray-200 hover:bg-gray-400">Exporter CSV</a></li>
                     <li><a href="{% url 'import_csv' %}" class="border border-gray-700 p-1 rounded-lg bg-gray-200 hover:bg-gray-400">Importer CSV</a></li>
                 </div>
-                <div class="flex flex-row gap-4">
+                <div class="flex flex-row gap-4 justify-center items-center">
                     <li>
                         <a href="" class="border border-gray-700 p-1 rounded-lg bg-gray-200 hover:bg-gray-400" id="toggleDarkMode"></a> 
                     </li>
