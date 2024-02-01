@@ -11,9 +11,11 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def list_sites(request):
-    sites = Site.objects.filter(user=request.user)
+    if not request.user.is_superuser:
+        sites = Site.objects.filter(user=request.user)
+        return render(request, 'sites/list_sites.html', {'sites': sites})
+    sites = Site.objects.all()
     return render(request, 'sites/list_sites.html', {'sites': sites})
-
 
 @login_required
 def add_site(request):
