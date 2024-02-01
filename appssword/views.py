@@ -1,4 +1,6 @@
 import csv
+import secrets
+import string
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Site
@@ -31,11 +33,13 @@ def add_site(request):
     return render(request, 'sites/add_site.html', {'form': form})
 
 @login_required
-def change_site(request, site_id):
+def change_site(request, site_id, automated_secure_password):
     site = get_object_or_404(Site, pk=site_id)
     if request.method == 'POST':
         form = SiteForm(request.POST, instance=site)
         if form.is_valid():
+            if automated_secure_password :
+                form.password == generate_secure_password()
             form.save()
             return redirect('/')
     else:
@@ -117,3 +121,9 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
+
+
+def generate_secure_password(length=12):
+    alphabet = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(secrets.choice(alphabet) for i in range(length))
+    return password
